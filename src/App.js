@@ -8,7 +8,7 @@ class App extends Component {
         <div className="text-center mb-5 container">
           Amazing weather application under construction!!!
         </div>
-      <Weather_panel></Weather_panel>
+        <Weather_panel></Weather_panel>
       </div>
     );
   }
