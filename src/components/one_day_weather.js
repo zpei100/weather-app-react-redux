@@ -1,65 +1,31 @@
 import React, { Component } from 'react';
 
-export default class One_day_weather extends Component {
-
-  constructor(props) {
-   
-    super(props);
-   
-    var {main, weather, wind, rain } = props.data;
-    
-    console.log('mmm', main.temp, main.pressure, main.humidity, 'weather',  weather[0].description, 'wind:', wind.speed, rain['3h'])
-
-
-    this.state = {
-      temp: parseInt(main.temp) - 273,
-      pressure: main.pressure,
-      humidity: main.humidity,
-      description: weather[0].description,
-      wind: wind.speed,
-      rain: rain['3h'],
-    }
-  }
+class One_day_weather extends Component {
   render() {
-
+    var data = this.props.data;
     return (
-      //no objects
       <ul className="list-group text-center">
         <li className="list-group-item">
-          temperature: {this.state.temp}
+          temperature: {data.temp - 273}
         </li>
         <li className="list-group-item">
-          pressure: {this.state.pressure}
+          pressure: {data.main.pressure}
         </li>
         <li className="list-group-item">
-          humidity: {this.state.humidity}
+          humidity: {data.main.humidity}
         </li>
         <li className="list-group-item">
-          description: {this.state.description}
+          description: {data.weather[0].description}
         </li>
         <li className="list-group-item">
-          wind: {this.state.wind}
+          wind: {data.wind.speed}
         </li>
         <li className="list-group-item">
-          rain: {this.state.rain}
+          rain: {data.rain['3h']}
         </li>
       </ul>
     )
-
-    // return (
-    //   <div className="mb-3 container">
-    //     <ol className="my-3 list-group">
-    //       <li className="list-group-item text-center">
-    //         {this.props.data.low}
-    //       </li>
-    //       <li className="list-group-item text-center">
-    //         {this.props.data.high}
-    //       </li>
-    //       <li className="list-group-item text-center">
-    //         {this.props.data.weather}
-    //       </li>
-    //     </ol>
-    //   </div>
-    // );
   }
 }
+
+export { One_day_weather }
